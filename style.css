@@ -1,0 +1,205 @@
+/* styles.css */
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8E559;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.btn-primary {
+    background-color: #3E3232 !important;
+    /* Set the background color for the button */
+    border-color: #3E3232 !important;
+    /* Set the border color for the button */
+}
+
+.typewriter .t1 {
+    font-family: 'Silkscreen', sans-serif;
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #9DBC98;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 2.5s steps(20, end),
+        blink-caret .75s step-end infinite;
+}
+
+.t1 span {
+    color: orange;
+}
+
+.subtitle {
+    margin: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+h3.st1h3 a {
+    color: #3E3232;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #9DBC98;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2em;
+        
+    }
+
+    .btn-primary {
+        font-size: 0.8em;
+        
+    }
+}
+
+.container-fluid {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.vertical-center {
+    margin-top: 50px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.modal-content {
+    max-width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container-fluid {
+    text-align: center;
+}
+
+#projectModal .modal-content .modal{
+    background-color: #FBF9F1;
+    color: #3E3232;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+
+@media (min-width: 769px) {
+    #projectModal .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    #projectModal .modal-content::-webkit-scrollbar {
+        width: 3px;
+        background-color: #FBF9F1;
+    }
+
+    #projectModal .modal-content::-webkit-scrollbar-thumb {
+        border-radius: 1px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #3E3232;
+    }
+}
+
+.modal-content {
+    background-color: #F9EFDB; /* Set the background color to F9EFDB */
+    border: 2px solid #3E3232;
+    overflow: auto; /* Add a border for visual separation (optional) */
+}
+.modal-body {
+    max-height: calc(100vh - 200px); /* Adjust the value based on your layout */
+    overflow-y: auto; /* Add vertical scroll bar inside the modal body */
+}
+/* Custom styles for the scrollbar in WebKit browsers */
+.modal-body::-webkit-scrollbar {
+    width: 3px; /* Width of the scrollbar */
+}
+
+/* Handle on hover */
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #3E3232; /* Color on hover */
+}
+
+/* Handle on the scrollbar */
+.modal-body::-webkit-scrollbar-thumb {
+    background: #6A5D5D; /* Color of the scrollbar handle */
+    border-radius: 3px; /* Radius of the scrollbar handle */
+}
+
+/* Track */
+.modal-body::-webkit-scrollbar-track {
+    background: #F9EFDB; /* Color of the scrollbar track */
+}
+
+.form-step {
+    display: none; /* Hide the form step initially */
+}
+
+.color-options {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.color-options img {
+    width: 95%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.color-options img:hover {
+    border: 2px solid #3E3232; /* Add border on hover for better indication */
+}
+
+#selectedColorDisplay {
+    margin-top: 10px;
+}

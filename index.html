@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Plate Upload</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid typewriter">
+        <h1 class="t1"><span>L</span>icense <span>P</span>late <span>U</span>pload</h1>
+
+        <!-- Button to trigger the form modal -->
+        <button type="button" class="btn btn-primary vertical-center" data-toggle="modal" data-target="#colorModal">
+            Open Form
+        </button>
+    </div>
+
+
+
+    <!--  for the plate modals-->
+    <div class="modal fade" id="colorModal" tabindex="-1" role="dialog" aria-labelledby="colorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="colorModalLabel">Choose Plate Color of the image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="color-options">
+                        <img src="images/red.png" alt="Red Plate" data-color="Red" onclick="selectColor('Red')">
+                        <img src="images/green.png" alt="green Plate" data-color="Green" onclick="selectColor('Green')">
+                        <img src="images/lightblue.png" alt="LightBlue Plate" data-color="LightBlue" onclick="selectColor('LightBlue')">
+                        <img src="images/orange.png" alt="Orange Plate" data-color="Orange" onclick="selectColor('Orange')">
+                        <img src="images/black.png" alt="Black Plate" data-color="Black" onclick="selectColor('Black')">
+                        <img src="images/Turquoise.png" alt="Turquoise Plate" data-color="Turquoise" onclick="selectColor('Turquoise')">
+                        <img src="images/blue.png" alt="Blue Plate" data-color="Blue" onclick="selectColor('Blue')">
+                        <img src="images/lighter_blue.png" alt="Lighter Blue Plate" data-color="Lighter Blue" onclick="selectColor('Lighter Blue')">
+                        <img src="images/black_and_yellow.png" alt="Balck and Yellow Plate" data-color="Balck and Yellow" onclick="selectColor('Balck and Yellow')">
+                        <div id="selectedColorDisplay"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Add this modal structure to your HTML where other modals are defined -->
+
+<div class="modal fade" id="initialStepModal" tabindex="-1" role="dialog" aria-labelledby="initialStepModalLabel" aria-hidden="true">
+    <!-- ... Your existing content for the initial step modal ... -->
+    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+</div>
+
+<!-- Region Selection Modal -->
+<div class="modal fade" id="regionSelectionModal" tabindex="-1" role="dialog" aria-labelledby="regionSelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="regionSelectionModalLabel">Choose the Region</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <!-- Add your list of regions here -->
+                    <li class="list-group-item" onclick="selectRegion('Region 1')">Region 1</li>
+                    <li class="list-group-item" onclick="selectRegion('Region 2')">Region 2</li>
+                    <li class="list-group-item" onclick="selectRegion('Region 3')">Region 3</li>
+                    <!-- Add more regions as needed -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="previousStep()">Previous</button>
+                <button type="button" class="btn btn-primary" onclick="selectRegion()">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <!-- Modal for project description -->
+    <div class="subtitle">
+        <h3 class="st1h3"><a href="#" id="projectLink">What for?</a></h3>
+    </div>
+    <div class="modal" id="projectModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">The License Plate Detection System with AI Classification for Low-Quality
+                        Images</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="projectDescription">
+                    <!-- Project description content will be added dynamically using JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
