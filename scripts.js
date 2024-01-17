@@ -25,39 +25,57 @@ function updateSelectedColorDisplay() {
     displayElement.innerHTML = `Selected Color: ${selectedColor}`;
 }
 
-// Function to move to the next step
-// Function to handle moving to the next step
+// Store the current step
+let currentStep = 1;
+
 // Function to handle moving to the next step
 function nextStep() {
-    // Add logic based on the selected color for the next steps
-    switch (selectedColor) {
-        case 'Red':
-        case 'Green':
-        case 'Orange':
-        case 'Black':
-        case 'LightBlue':
-        case 'Blue':
-            // Show the region selection modal
-            $('#colorModal').modal('hide');
-            $('#regionSelectionModal').modal('show');
+    switch (currentStep) {
+        case 1:
+            // Add logic based on the selected color for the next steps
+            switch (selectedColor) {
+                case 'Red':
+                case 'Green':
+                case 'Orange':
+                case 'Black':
+                case 'LightBlue':
+                case 'Blue':
+                    // Show the region selection modal
+                    $('#regionSelectionModal').modal('show');
+                    break;
+                case 'Black and Yellow':
+                case 'Turquoise':
+                    // Skip the region selection modal and go directly to image upload modal
+                    $('#regionSelectionModal').modal('hide');
+                    $('#imageUploadModal').modal('show');
+                    break;
+                default:
+                    // For other colors, you can handle different logic or show a different modal
+                    break;
+            }
             break;
-        case 'Black and Yellow':
-        case 'Turquoise':
-            // Show the image upload modal
-            $('#colorModal').modal('hide');
+        case 2:
+            // Move to the next step (image upload)
+            $('#regionSelectionModal').modal('hide');
             $('#imageUploadModal').modal('show');
             break;
-        default:
-            // For other colors, you can handle different logic or show a different modal
-            break;
+        // Add more cases for additional steps if needed
     }
+    currentStep++;
 }
+
+// Function to handle going back to the previous step
 function previousStep() {
-    // Hide the region selection modal
-    $('#regionSelectionModal').modal('hide');
-    // Show the initial step modal
-    $('#colorModal').modal('show');
+    switch (currentStep) {
+        case 2:
+            // If currently in the second step (region selection), go back to color selection
+            $('#regionSelectionModal').modal('hide');
+            break;
+        // Add more cases for additional steps if needed
+    }
+    currentStep--;
 }
+
 
 // Function to handle region selection
 function selectRegion(region) {
