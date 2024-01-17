@@ -44,6 +44,7 @@ function nextStep() {
         case 'Black and Yellow':
         case 'Turquoise':
             // Show the image upload modal
+            $('#colorModal').modal('hide');
             $('#imageUploadModal').modal('show');
             break;
         default:
@@ -69,11 +70,20 @@ function selectRegion(region) {
 }
 
 // Function to handle image upload
-function uploadImage() {
-    // Implement logic for image upload
-    // This function can be triggered when the user clicks the "Submit" button in the image upload modal
-    // You can use AJAX, fetch, or other methods to handle the image upload process
-    // After the upload is done, you may want to close the image upload modal or show a success message
-    // For demonstration purposes, let's assume the image upload is successful and close the modal
+function triggerImageUpload() {
+    document.getElementById('imageInput').click();
+}
+
+// Function to handle image selection
+document.getElementById('imageInput').addEventListener('change', function (event) {
+    // Show the "Submit" button after an image is selected
+    document.getElementById('submitBtn').style.display = 'block';
+});
+
+// Function to handle image submission
+function submitImage() {
+    // Implement logic for image submission
+    // You can retrieve the selected image using document.getElementById('imageInput').files[0]
+    // For demonstration purposes, let's assume the submission is successful and close the modal
     $('#imageUploadModal').modal('hide');
 }
